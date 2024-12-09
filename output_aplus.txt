@@ -1,0 +1,78 @@
+Trace 1 (should reject)
+Input String: aaab
+Machine Name: a plus
+Number of States: 3
+Start State: q1
+Accept State: q3
+Reject State: qreject
+String rejected at 6 transitions
+Determinism metric: 2.0
+
+Trace 2 (should accept)
+Input String: aaa
+Machine Name: a plus
+Number of States: 3
+Start State: q1
+Accept State: q3
+Reject State: qreject
+String accepted at 7 transitions
+Path to accept:
+Step 0: [q1]aaa
+Step 1: a[q1]aa
+Step 2: aa[q1]a
+Step 3: aaa[q2]_
+Step 4: aa[q3]_
+Determinism metric: 1.8571428571428572
+
+Trace 3 (should accept)
+Input String: aaaaaaaaaaa
+Machine Name: a plus
+Number of States: 3
+Start State: q1
+Accept State: q3
+Reject State: qreject
+String accepted at 23 transitions
+Path to accept:
+Step 0: [q1]aaaaaaaaaaa
+Step 1: a[q1]aaaaaaaaaa
+Step 2: aa[q1]aaaaaaaaa
+Step 3: aaa[q1]aaaaaaaa
+Step 4: aaaa[q1]aaaaaaa
+Step 5: aaaaa[q1]aaaaaa
+Step 6: aaaaaa[q1]aaaaa
+Step 7: aaaaaaa[q1]aaaa
+Step 8: aaaaaaaa[q1]aaa
+Step 9: aaaaaaaaa[q1]aa
+Step 10: aaaaaaaaaa[q1]a
+Step 11: aaaaaaaaaaa[q2]_
+Step 12: aaaaaaaaaa[q3]_
+Determinism metric: 1.9565217391304348
+
+Trace 4 (should reject)
+Input String: aaabaaaaaa
+Machine Name: a plus
+Number of States: 3
+Start State: q1
+Accept State: q3
+Reject State: qreject
+String rejected at 6 transitions
+Determinism metric: 2.0
+
+Trace 5 (should accept)
+Input String: aaabaaaaaa
+Machine Name: a plus
+Number of States: 3
+Start State: q1
+Accept State: q3
+Reject State: qreject
+String accepted at 13 transitions
+Path to accept:
+Step 0: [q1]aaaaaa
+Step 1: a[q1]aaaaa
+Step 2: aa[q1]aaaa
+Step 3: aaa[q1]aaa
+Step 4: aaaa[q1]aa
+Step 5: aaaaa[q1]a
+Step 6: aaaaaa[q2]_
+Step 7: aaaaa[q3]_
+Determinism metric: 1.9230769230769231

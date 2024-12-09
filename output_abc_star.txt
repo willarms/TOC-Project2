@@ -1,0 +1,92 @@
+Trace 1 (should reject)
+Input String: abbbbbbb
+Machine Name: a*b*c* Nondeterministic
+Number of States: 6
+Start State: q0
+Accept State: qacc
+Reject State: qrej
+String accepted at 26 transitions
+Path to accept:
+Step 0: [q0]abbbbbbb
+Step 1: a[q0]bbbbbbb
+Step 2: ab[q1]bbbbbb
+Step 3: abb[q1]bbbbb
+Step 4: abbb[q1]bbbb
+Step 5: abbbb[q1]bbb
+Step 6: abbbbb[q1]bb
+Step 7: abbbbbb[q1]b
+Step 8: abbbbbbb[q3]_
+Step 9: abbbbbbb_[qacc]_
+Determinism metric: 1.3617021276595744
+
+Trace 2 (should accept)
+Input String: abc
+Machine Name: a*b*c* Nondeterministic
+Number of States: 6
+Start State: q0
+Accept State: qacc
+Reject State: qrej
+String accepted at 10 transitions
+Path to accept:
+Step 0: [q0]abc
+Step 1: a[q0]bc
+Step 2: ab[q2]c
+Step 3: abc[q3]_
+Step 4: abc_[qacc]_
+Determinism metric: 1.0
+
+Trace 3 (should accept)
+Input String: aaabbbccc
+Machine Name: a*b*c* Nondeterministic
+Number of States: 6
+Start State: q0
+Accept State: qacc
+Reject State: qrej
+String accepted at 28 transitions
+Path to accept:
+Step 0: [q0]aaabbbccc
+Step 1: a[q0]aabbbccc
+Step 2: aa[q0]abbbccc
+Step 3: aaa[q0]bbbccc
+Step 4: aaab[q1]bbccc
+Step 5: aaabb[q1]bccc
+Step 6: aaabbb[q2]ccc
+Step 7: aaabbbc[q2]cc
+Step 8: aaabbbcc[q2]c
+Step 9: aaabbbccc[q3]_
+Step 10: aaabbbccc_[qacc]_
+Determinism metric: 1.697674418604651
+
+Trace 4 (should reject)
+Input String: abbbabbc
+Machine Name: a*b*c* Nondeterministic
+Number of States: 6
+Start State: q0
+Accept State: qacc
+Reject State: qrej
+String rejected at 13 transitions
+Determinism metric: 1.0869565217391304
+
+Trace 5 (should accept)
+Input String: abbbabbc
+Machine Name: a*b*c* Nondeterministic
+Number of States: 6
+Start State: q0
+Accept State: qacc
+Reject State: qrej
+String accepted at 29 transitions
+Path to accept:
+Step 0: [q0]aabbccccccc
+Step 1: a[q0]abbccccccc
+Step 2: aa[q0]bbccccccc
+Step 3: aab[q1]bccccccc
+Step 4: aabb[q2]ccccccc
+Step 5: aabbc[q2]cccccc
+Step 6: aabbcc[q2]ccccc
+Step 7: aabbccc[q2]cccc
+Step 8: aabbcccc[q2]ccc
+Step 9: aabbccccc[q2]cc
+Step 10: aabbcccccc[q2]c
+Step 11: aabbccccccc[q3]_
+Step 12: aabbccccccc_[qacc]_
+Determinism metric: 1.3061224489795917

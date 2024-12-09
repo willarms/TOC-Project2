@@ -1,0 +1,34 @@
+Discussion of Code for NTM Tracer - Will Armsworthy (warmswor)
+
+My code works by first parsing the input file. I assume that the input files mirror the behavior described in the 
+document and shown in the aplus.csv sample, which I use as my first input case. I use the csv library from python to
+parse the file after loading it in from my drive folder. Next, I gather the metadata from the top of the file. This 
+includes the machine name, states, accept state, reject state, and start state. Then, I construct a dictionary called 
+"transitions" which holds each state and potential next states as key,values, like it is describe in the project instructions.
+
+This dictionary is then parsed through in the next part of my NTM_Tracer function, which looks at the state, character, next state,
+character to write, and direction to move the tape for each possibility. It keeps track of the sequence of states in a dictionary (to return if accepted), 
+and calculates the determinism metric, explained in the project instructions, that I will discuss at the end of the document. Finally,
+the NTM function goes through each possibility, evaluating whether accept, reject, or too many states will be reached. In each case, the 
+function returns a boolean with the result of the input string and information about whether it was accepted (and the path) or how many states it was rejected in.
+
+Looking at the test cases I used to determine the functionality of my program, I used the aplus.csv and abc_star.csv machines (both found in the class folder).
+Using my knowledge of NTM/DTMs and the work we have done in class so far, I was able to make sure that these would make sense to use and be valid test cases. 
+Next, I came up with 5 test input strings for each, shown as input strings #s 1-5 in my code. These were designed so that the first should reject, second and third should accept,
+fourth should reject, and fifth should accept (shown in output txts for both). To verify that my code worked, I made sure that all these line up, along with a couple other
+input strings that I then removed from my file for easier reading. 
+
+Additionally, my program computes a determinism metric for each input string. To calculate this metric, I had to carefully analyze how to trace through each input string. 
+To more fully show how an input string is handled, on a string that was accepted, I print out the path that the machine took to getting there, in line with our homeworks from class.
+This path (or errors in the path), helped me debug my program and make sure that it was acting in the way that I wanted it to. Additionally, it helped me verify that I was 
+calculating the determinism metric correctly, by averaging the number of potential transitions from each step, and then iterating on this as I go through. 
+
+Looking at the determinism metric (I'll call it d metric for simplicity) ratings for each of my test cases, we can see that the first machine that I looked at (aplus), shows a moderate 
+level of nondeterminism. Particularly if you look at the strings that accept (2, 3, and 5), they all have d metrics of 1.8 or higher, showing a relatively high level of nondeterminism.
+This makes sense because the NTM works by having multiple transitions on q1 given the input of an a, and relies on nondeterminism to know whether to stay on q1 or move to q2. 
+
+Conversly, if you look at the outputs for the second machine that I looked at (abc_star), they show that this machine displays slightly less determinism than the aplus machine. Particularly,
+the input string abc, that cleaning flows through the states of the machine, actually has a determinism metric of 1.0, because at no point are there multiple possibilities for an input. While 
+this 1.0 rating doesn't exist for the other input strings that are a little more complex, none of them reach a d metric of higher than about 1.3 (if they are accepted). This goes 
+to show that this machine shows considerably more determinism than the previous machine analyzed, and also goes to validating the structure of my code and the logic of my 
+computations. 
